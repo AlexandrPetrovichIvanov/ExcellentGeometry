@@ -1,5 +1,4 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace ExcellentGeometry.Tests
 {
@@ -13,7 +12,8 @@ namespace ExcellentGeometry.Tests
             double sizeB,
             double sizeC)
         {
-            throw new NotImplementedException();
+            Assert.That(() => new Triangle(sizeA, sizeB, sizeC),
+                Throws.Exception);
         }
 
         [TestCase(0, 1, 1)]
@@ -24,19 +24,19 @@ namespace ExcellentGeometry.Tests
             double sizeB,
             double sizeC)
         {
-            throw new NotImplementedException();
+            Assert.That(() => new Triangle(sizeA, sizeB, sizeC),
+                Throws.Exception);
         }
 
-        [TestCase(1, 1, 1, 10)]
-        [TestCase(1, 1, 1, 10)]
-        [TestCase(1, 1, 1, 10)]
+        [TestCase(3, 4, 5, 6)]
         public void CalculatesAreaCorrectly(
             double sizeA,
             double sizeB,
             double sizeC,
             double expectedArea)
         {
-            throw new NotImplementedException();
+            var triangle = new Triangle(sizeA, sizeB, sizeC);
+            Assert.That(triangle.GetArea().IsApproximatelyEqualTo(expectedArea));
         }
 
         [TestCase(double.MaxValue, double.MaxValue, double.MaxValue)]
@@ -46,7 +46,8 @@ namespace ExcellentGeometry.Tests
             double sizeB,
             double sizeC)
         {
-            throw new NotImplementedException();
+            var triangle = new Triangle(sizeA, sizeB, sizeC);
+            Assert.That(() => triangle.GetArea(), Throws.Nothing);
         }
     }
 }
