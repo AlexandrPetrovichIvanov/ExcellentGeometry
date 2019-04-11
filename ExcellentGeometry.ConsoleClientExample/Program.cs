@@ -14,15 +14,18 @@ namespace ExcellentGeometry.ConsoleClientExample
 
         private static void ExampleClientCode()
         {
-            var triangle = new Triangle();
-            var circle = new Circle();
+            var triangle = new Triangle(10, 20, 15);
+            Console.WriteLine("Triangle is created. Sizes:"
+                + $"{triangle.SizeA},{triangle.SizeB},{triangle.SizeC}");
+
+            Console.WriteLine($"Is it a right triangle? {triangle.IsRightTriangle}");
+
+            var circle = new Circle(100);
+            Console.WriteLine("Circle is created. "
+                + $"Diameter: {circle.Diameter}, radius: {circle.Radius}");
 
             var totalArea = CalculateTotalArea(new IShape[] {triangle, circle});
-
             Console.WriteLine($"Total area is: {totalArea}");
-
-            Console.WriteLine();
-            Console.WriteLine($"Is it a right triangle? {triangle.IsRightTriangle}");
 
             Console.ReadLine();
         }
