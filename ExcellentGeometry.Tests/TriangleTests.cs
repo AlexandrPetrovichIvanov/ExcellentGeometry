@@ -49,5 +49,12 @@ namespace ExcellentGeometry.Tests
             var triangle = new Triangle(sizeA, sizeB, sizeC);
             Assert.That(() => triangle.GetArea(), Throws.Nothing);
         }
+
+        [Test]
+        public void DefinesIfTriangleIsRightTriangle()
+        {
+            Assert.That(new Triangle(3, 4, 5).IsRightTriangle, Is.True);
+            Assert.That(new Triangle(6, 6, 6).IsRightTriangle, Is.False);
+        }
     }
 }
