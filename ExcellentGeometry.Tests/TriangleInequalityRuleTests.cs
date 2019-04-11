@@ -1,20 +1,28 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace ExcellentGeometry.Tests
 {
     public class TriangleInequalityRuleTests
     {
         [Test]
-        public void DefinesIfSizesSatisfyTheRuleCorrectly()
+        public void OrdinaryTriangleSatisfiesTheRule()
         {
-            throw new NotImplementedException();
+            Assert.That(TriangleInequalityRule.IsSatisfied(15, 25, 20));
         }
 
-        [Test]
-        public void DefinesIfSizesDoNotSatisfyTheRuleCorrectly()
+        [TestCase(10, 10, 100)]
+        [TestCase(10, 100, 10)]
+        [TestCase(100, 10, 10)]
+        [TestCase(20, 10, 10)]
+        [TestCase(10, 20, 10)]
+        [TestCase(10, 10, 20)]
+        public void DefinesIfSizesDoNotSatisfyTheRuleCorrectly(
+            double sizeA,
+            double sizeB,
+            double sizeC)
         {
-            throw new NotImplementedException();
+            Assert.That(TriangleInequalityRule.IsSatisfied(sizeA, sizeB, sizeC),
+                Is.False);
         }
     }
 }
