@@ -1,7 +1,4 @@
-﻿
-using System;
-
-namespace ExcellentGeometry
+﻿namespace ExcellentGeometry
 {
     internal static class TriangleInequalityRule
     {
@@ -10,7 +7,9 @@ namespace ExcellentGeometry
             double sizeB,
             double sizeC)
         {
-            throw new NotImplementedException();
+            return sizeA + sizeB > sizeC
+                   && sizeA + sizeC > sizeB
+                   && sizeB + sizeC > sizeA;
         }
     }
 }
