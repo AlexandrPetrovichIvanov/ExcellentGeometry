@@ -12,6 +12,9 @@ namespace ExcellentGeometry
         /// </summary>
         public Circle(double radius)
         {
+            if (radius <= 0)
+                throw new ArgumentException("Radius must be a positive value.");
+
             Radius = radius;
         }
 
@@ -26,9 +29,6 @@ namespace ExcellentGeometry
         public double Radius { get; }
 
         /// <inheritdoc />
-        public double GetArea()
-        {
-            throw new NotImplementedException();
-        }
+        public double GetArea() => Math.PI * Radius * Radius;
     }
 }
