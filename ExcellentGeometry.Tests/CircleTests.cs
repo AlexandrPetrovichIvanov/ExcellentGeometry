@@ -1,4 +1,5 @@
 ﻿using System;
+using ExcellentGeometry.Utils;
 using NUnit.Framework;
 
 namespace ExcellentGeometry.Tests
