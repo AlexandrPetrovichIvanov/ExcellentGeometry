@@ -16,25 +16,25 @@ namespace ExcellentGeometry
             if (!TriangleInequalityRule.IsSatisfied(sizeA, sizeB, sizeC))
                 throw new ArgumentException("Triangle sizes must satisfy \"Triangle inequality rule\".");
 
-            SizeA = sizeA;
-            SizeB = sizeB;
-            SizeC = sizeC;
+            SideA = sizeA;
+            SideB = sizeB;
+            SideC = sizeC;
         }
 
         /// <summary>
         ///     Get size A.
         /// </summary>
-        public double SizeA { get; }
+        public double SideA { get; }
 
         /// <summary>
         ///     Get size B.
         /// </summary>
-        public double SizeB { get; }
+        public double SideB { get; }
 
         /// <summary>
         ///     Get size C.
         /// </summary>
-        public double SizeC { get; }
+        public double SideC { get; }
 
         /// <summary>
         ///     Indicates if one of the triangle's angles is a right angle
@@ -47,9 +47,9 @@ namespace ExcellentGeometry
                 var realArea = GetArea();
 
                 // if triangle is a right triangle, area is one of the following: 
-                var potentialArea1 = 0.5 * SizeA * SizeB;
-                var potentialArea2 = 0.5 * SizeA * SizeC;
-                var potentialArea3 = 0.5 * SizeB * SizeC;
+                var potentialArea1 = 0.5 * SideA * SideB;
+                var potentialArea2 = 0.5 * SideA * SideC;
+                var potentialArea3 = 0.5 * SideB * SideC;
 
                 return realArea.IsApproximatelyEqualTo(potentialArea1)
                        || realArea.IsApproximatelyEqualTo(potentialArea2)
@@ -63,9 +63,9 @@ namespace ExcellentGeometry
         private double UseHeronsFormula()
         {
             // semiperimeter
-            var s = 0.5 * (SizeA + SizeB + SizeC);
+            var s = 0.5 * (SideA + SideB + SideC);
 
-            return Math.Sqrt(s * (s - SizeA) * (s - SizeB) * (s - SizeC));
+            return Math.Sqrt(s * (s - SideA) * (s - SideB) * (s - SideC));
         }
     }
 }

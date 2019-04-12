@@ -16,7 +16,7 @@ namespace ExcellentGeometry.ConsoleClientExample
         {
             var triangle = new Triangle(10, 20, 15);
             Console.WriteLine("Triangle is created. Sizes:"
-                + $"{triangle.SizeA},{triangle.SizeB},{triangle.SizeC}");
+                + $"{triangle.SideA},{triangle.SideB},{triangle.SideC}");
 
             Console.WriteLine($"Is it a right triangle? {triangle.IsRightTriangle}");
 
